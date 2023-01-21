@@ -1,0 +1,276 @@
+$date
+	Sun Jan 22 03:26:57 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module MLD_7_4_decoder_test_bench $end
+$var wire 7 ! decoded_vector [0:6] $end
+$var reg 1 " clk $end
+$var reg 1 # load $end
+$var reg 7 $ received_vector [0:6] $end
+$var reg 1 % reset $end
+$scope module DUT $end
+$var wire 1 " clk $end
+$var wire 1 # load $end
+$var wire 7 & received_vector [0:6] $end
+$var wire 1 % reset $end
+$var wire 1 ' error_value $end
+$var wire 7 ( decoded_vector [0:6] $end
+$var reg 1 ) parity_check_sum_1 $end
+$var reg 1 * parity_check_sum_2 $end
+$var reg 1 + parity_check_sum_3 $end
+$var reg 1 , w0 $end
+$var reg 1 - w1 $end
+$var reg 1 . w2 $end
+$var reg 1 / w3 $end
+$var reg 1 0 w4 $end
+$var reg 1 1 w5 $end
+$var reg 1 2 w6 $end
+$scope module FF1 $end
+$var wire 1 , D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 3 Q $end
+$upscope $end
+$scope module FF2 $end
+$var wire 1 - D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 4 Q $end
+$upscope $end
+$scope module FF3 $end
+$var wire 1 . D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 5 Q $end
+$upscope $end
+$scope module FF4 $end
+$var wire 1 / D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 6 Q $end
+$upscope $end
+$scope module FF5 $end
+$var wire 1 0 D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 7 Q $end
+$upscope $end
+$scope module FF6 $end
+$var wire 1 1 D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 8 Q $end
+$upscope $end
+$scope module FF7 $end
+$var wire 1 2 D $end
+$var wire 1 " clk $end
+$var wire 1 % reset $end
+$var reg 1 9 Q $end
+$upscope $end
+$scope module M $end
+$var wire 1 ) A $end
+$var wire 1 * B $end
+$var wire 1 + C $end
+$var wire 1 ' M $end
+$var wire 1 : t0 $end
+$var wire 1 ; t1 $end
+$var wire 1 < t2 $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+bx (
+x'
+bx &
+x%
+bx $
+x#
+0"
+bx !
+$end
+#2
+02
+11
+10
+1/
+0.
+1-
+1,
+b1101110 $
+b1101110 &
+1#
+#5
+0'
+0;
+0:
+0<
+1+
+0*
+0)
+13
+14
+05
+16
+17
+18
+b1101110 !
+b1101110 (
+09
+1"
+#10
+0"
+#12
+12
+0/
+1.
+0,
+0#
+#15
+0+
+1*
+00
+1/
+0-
+1,
+19
+06
+15
+b110111 !
+b110111 (
+03
+1"
+#20
+0"
+#25
+1+
+0*
+01
+10
+0.
+1-
+13
+04
+16
+b1011011 !
+b1011011 (
+07
+1"
+#30
+0"
+#35
+0+
+1)
+02
+11
+0/
+1.
+08
+17
+05
+b1101101 !
+b1101101 (
+14
+1"
+#40
+0"
+#45
+12
+00
+1/
+0,
+15
+06
+18
+b1110110 !
+b1110110 (
+09
+1"
+#50
+0"
+#55
+1*
+0)
+01
+10
+0-
+1,
+19
+07
+16
+b111011 !
+b111011 (
+03
+1"
+#60
+0"
+#65
+0,
+1'
+1;
+1:
+1<
+1+
+1)
+02
+11
+0.
+1-
+13
+04
+17
+b1011101 !
+b1011101 (
+08
+1"
+#70
+0"
+#75
+0'
+0;
+0:
+0<
+0+
+0*
+0)
+12
+0/
+1.
+0-
+0,
+09
+18
+05
+14
+b101110 !
+b101110 (
+03
+1"
+#80
+0"
