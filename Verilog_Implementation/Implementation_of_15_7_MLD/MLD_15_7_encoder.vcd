@@ -1,0 +1,241 @@
+$date
+	Sun Jan 22 20:49:48 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module MLD_15_7_Encoder_test_bench $end
+$var wire 8 ! parity_vector [7:0] $end
+$var reg 1 " clk $end
+$var reg 1 # information_bit $end
+$var reg 1 $ reset $end
+$scope module DUT $end
+$var wire 1 " clk $end
+$var wire 1 # information_bit $end
+$var wire 1 $ reset $end
+$var wire 8 % parity_vector [7:0] $end
+$var wire 1 & ff8_output $end
+$var wire 1 ' ff7_output $end
+$var wire 1 ( ff6_output $end
+$var wire 1 ) ff5_output $end
+$var wire 1 * ff4_output $end
+$var wire 1 + ff3_output $end
+$var wire 1 , ff2_output $end
+$var wire 1 - ff1_output $end
+$var reg 1 . ff1_input $end
+$var reg 1 / ff2_input $end
+$var reg 1 0 ff3_input $end
+$var reg 1 1 ff4_input $end
+$var reg 1 2 ff5_input $end
+$var reg 1 3 ff6_input $end
+$var reg 1 4 ff7_input $end
+$var reg 1 5 ff8_input $end
+$scope module FF1 $end
+$var wire 1 . D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 - Q $end
+$upscope $end
+$scope module FF2 $end
+$var wire 1 / D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 , Q $end
+$upscope $end
+$scope module FF3 $end
+$var wire 1 0 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 + Q $end
+$upscope $end
+$scope module FF4 $end
+$var wire 1 1 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 * Q $end
+$upscope $end
+$scope module FF5 $end
+$var wire 1 2 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 ) Q $end
+$upscope $end
+$scope module FF6 $end
+$var wire 1 3 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 ( Q $end
+$upscope $end
+$scope module FF7 $end
+$var wire 1 4 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 ' Q $end
+$upscope $end
+$scope module FF8 $end
+$var wire 1 5 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 & Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+bx %
+1$
+0#
+0"
+bx !
+$end
+#5
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+b0 !
+b0 %
+0&
+1"
+#7
+0$
+#10
+0"
+#15
+1"
+#17
+15
+14
+12
+1.
+1#
+#20
+0"
+#25
+04
+13
+02
+1/
+0.
+1-
+1)
+1'
+b11010001 !
+b11010001 %
+1&
+1"
+#30
+0"
+#35
+05
+14
+03
+10
+0/
+0'
+1(
+0)
+1,
+b10100010 !
+b10100010 %
+0-
+1"
+#37
+15
+04
+12
+1.
+0#
+#40
+0"
+#45
+14
+13
+11
+00
+1/
+1-
+0,
+1+
+1)
+b10010101 !
+b10010101 %
+0(
+1"
+#50
+0"
+#55
+05
+04
+02
+01
+10
+1'
+1(
+1*
+0+
+b11111011 !
+b11111011 %
+1,
+1"
+#60
+0"
+#65
+14
+03
+11
+0.
+1+
+0*
+0)
+0'
+b100111 !
+b100111 %
+0&
+1"
+#70
+0"
+#75
+15
+04
+12
+0/
+1'
+0(
+1*
+b1001110 !
+b1001110 %
+0-
+1"
+#77
