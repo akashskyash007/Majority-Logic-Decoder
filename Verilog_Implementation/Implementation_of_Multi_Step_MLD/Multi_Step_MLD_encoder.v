@@ -1,12 +1,12 @@
 module MLD_15_7_encoder(clk, reset, out, information_bit, sel);
 	input clk, reset, information_bit, sel;
 	output out;
-	reg ff1_input, ff2_input, ff3_input, ff4_input, ff5_input, ff6_input, ff7_input, ff8_input;
-	wire ff1_output, ff2_output, ff3_output, ff4_output, ff5_output, ff6_output, ff7_output, ff8_output;
+	reg ff1_input, ff2_input, ff3_input, ff4_input, ff5_input, ff6_input, ff7_input, ff8_input, ff9_input, ff10_input;
+	wire ff1_output, ff2_output, ff3_output, ff4_output, ff5_output, ff6_output, ff7_output, ff8_output, ff9_output, ff10_output;
 	wire gate_input, gate_output;
 	wire final_flip_flop_output_after_delay;
 
-	assign gate_input = ff8_output ^ information_bit;	
+	assign gate_input = ff10_output ^ information_bit;	
 
 	d_flip_flop FF1(reset, clk, ff1_input, ff1_output);
 	d_flip_flop FF2(reset, clk, ff2_input, ff2_output);
@@ -16,18 +16,22 @@ module MLD_15_7_encoder(clk, reset, out, information_bit, sel);
 	d_flip_flop FF6(reset, clk, ff6_input, ff6_output);
 	d_flip_flop FF7(reset, clk, ff7_input, ff7_output);
 	d_flip_flop FF8(reset, clk, ff8_input, ff8_output);
+	d_flip_flop FF9(reset, clk, ff9_input, ff9_output);
+	d_flip_flop FF10(reset, clk, ff10_input, ff10_output);
 	mux_2_1 SWITCH(information_bit, final_flip_flop_output_after_delay, out, sel);
 	mux_2_1 GATE(gate_input, 1'b0, gate_output, sel);
-	buf #2 G1(final_flip_flop_output_after_delay, ff8_output);
+	buf #2 G1(final_flip_flop_output_after_delay, ff10_output);
 
 	always @(*) begin
 		ff1_input = gate_output;
-		ff2_input = ff1_output;
-		ff3_input = ff2_output;
+		ff2_input = ff1_output ^ gate_output;
+		ff3_input = ff2_output ^ gate_output;
 		ff4_input = ff3_output;
 		ff5_input = ff4_output ^ gate_output;
-		ff6_input = ff5_output;
-		ff7_input = ff6_output ^ gate_output;
-		ff8_input = ff7_output ^ gate_output;
+		ff6_input = ff5_output ^ gate_output;
+		ff7_input = ff6_output;
+		ff8_input = ff7_output;
+		ff9_input = ff8_output ^ gate_output;
+		ff10_input = ff9_output;
 	end
 endmodule

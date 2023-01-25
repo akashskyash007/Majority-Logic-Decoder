@@ -3,27 +3,29 @@
 #include <math.h>
 
 void generate_parity_vector(int* information_vector, int* encoded_vector, int block_size, int num_info_bits) {
-	int* flip_flop_input = (int*)(malloc(8*sizeof(int)));
-	int* flip_flop_output = (int*)(malloc(8*sizeof(int)));
+	int* flip_flop_input = (int*)(malloc(10 * sizeof(int)));
+	int* flip_flop_output = (int*)(malloc(10 * sizeof(int)));
 	for(int i = 0;i < block_size - num_info_bits; i++){
 		flip_flop_input[i] = 0;
 		flip_flop_output[i] = 0;
 	
 	}
 	for(int i = 0;i < num_info_bits; i++){
-		flip_flop_input[0] = flip_flop_output[7] ^ information_vector[6 - i];
-		flip_flop_input[1] = flip_flop_output[0];
-		flip_flop_input[2] = flip_flop_output[1];
+		flip_flop_input[0] = flip_flop_output[9] ^ information_vector[num_info_bits - 1 - i];
+		flip_flop_input[1] = flip_flop_output[0] ^ flip_flop_input[0];
+		flip_flop_input[2] = flip_flop_output[1] ^ flip_flop_input[0];
 		flip_flop_input[3] = flip_flop_output[2];
 		flip_flop_input[4] = flip_flop_output[3] ^ flip_flop_input[0];
-		flip_flop_input[5] = flip_flop_output[4];
-		flip_flop_input[6] = flip_flop_output[5] ^ flip_flop_input[0];
-		flip_flop_input[7] = flip_flop_output[6] ^ flip_flop_input[0];
+		flip_flop_input[5] = flip_flop_output[4] ^ flip_flop_input[0];
+		flip_flop_input[6] = flip_flop_output[5];
+		flip_flop_input[7] = flip_flop_output[6];
+		flip_flop_input[8] = flip_flop_output[7] ^ flip_flop_input[0];
+		flip_flop_input[9] = flip_flop_output[8];
 		for (int j = i; j > 0; j--) {
 			encoded_vector[j] = encoded_vector[j - 1];
 		}
 		encoded_vector[0] = information_vector[num_info_bits - i - 1];
-		for (int j = 7; j >= 0; j--) {
+		for (int j = block_size - num_info_bits - 1; j >= 0; j--) {
 			flip_flop_output[j] = flip_flop_input[j];
 		}
 	}
@@ -45,18 +47,71 @@ void add_error(int* receive_vector, int* encoded_vector,int* error_vector,int bl
 	}
 }
 
+int majority_gate(int i1, int i2, int i3, int i4, int i5, int i6) {
+	if (i1 + i2 + i3 + i4 + i5 + i6 > 3) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 void decode(int* receive_vector, int* decoded_vector, int block_size){
 	for(int i=0;i<block_size;i++){
 		decoded_vector[i]=receive_vector[i];
 	
 	}
 	for(int i=0;i<block_size;i++){
-		int A1 = decoded_vector[3] ^ decoded_vector[11] ^ decoded_vector[12] ^ decoded_vector[14];
-		int A2 = decoded_vector[1] ^ decoded_vector[5] ^ decoded_vector[13] ^ decoded_vector[14];
-		int A3 = decoded_vector[0] ^ decoded_vector[2] ^ decoded_vector[6] ^ decoded_vector[14];
-		int A4 = decoded_vector[7] ^ decoded_vector[8] ^ decoded_vector[10] ^ decoded_vector[14];
-		int M = (A1&A2&A3) | (A2&A3&A4) | (A1&A3&A4) | (A1&A2&A4);
-		
+		int A11 = decoded_vector[4] ^ decoded_vector[10] ^ decoded_vector[13] ^ decoded_vector[14];
+		int A12 = decoded_vector[7] ^ decoded_vector[12] ^ decoded_vector[13] ^ decoded_vector[14];
+		int A13 = decoded_vector[9] ^ decoded_vector[11] ^ decoded_vector[13] ^ decoded_vector[14];
+		int A14 = decoded_vector[0] ^ decoded_vector[8] ^ decoded_vector[13] ^ decoded_vector[14];
+		int A15 = decoded_vector[1] ^ decoded_vector[5] ^ decoded_vector[13] ^ decoded_vector[14];
+		int A16 = decoded_vector[3] ^ decoded_vector[6] ^ decoded_vector[13] ^ decoded_vector[14];
+		int M1 = majority_gate(A11, A12, A13, A14, A15, A16);
+
+                int A21 = decoded_vector[0] ^ decoded_vector[10] ^ decoded_vector[12] ^ decoded_vector[14];
+                int A22 = decoded_vector[3] ^ decoded_vector[11] ^ decoded_vector[12] ^ decoded_vector[14];
+                int A23 = decoded_vector[7] ^ decoded_vector[13] ^ decoded_vector[12] ^ decoded_vector[14];
+                int A24 = decoded_vector[1] ^ decoded_vector[2] ^ decoded_vector[12] ^ decoded_vector[14];
+                int A25 = decoded_vector[4] ^ decoded_vector[8] ^ decoded_vector[12] ^ decoded_vector[14];
+                int A26 = decoded_vector[6] ^ decoded_vector[9] ^ decoded_vector[12] ^ decoded_vector[14];
+                int M2 = majority_gate(A21, A22, A23, A24, A25, A26);
+
+                int A31 = decoded_vector[3] ^ decoded_vector[12] ^ decoded_vector[11] ^ decoded_vector[14];
+                int A32 = decoded_vector[9] ^ decoded_vector[13] ^ decoded_vector[11] ^ decoded_vector[14];
+                int A33 = decoded_vector[0] ^ decoded_vector[5] ^ decoded_vector[11] ^ decoded_vector[14];
+                int A34 = decoded_vector[1] ^ decoded_vector[8] ^ decoded_vector[11] ^ decoded_vector[14];
+                int A35 = decoded_vector[2] ^ decoded_vector[4] ^ decoded_vector[11] ^ decoded_vector[14];
+                int A36 = decoded_vector[6] ^ decoded_vector[7] ^ decoded_vector[11] ^ decoded_vector[14];
+                int M3 = majority_gate(A31, A32, A33, A34, A35, A36);
+
+                int A41 = decoded_vector[0] ^ decoded_vector[12] ^ decoded_vector[10] ^ decoded_vector[14];
+                int A42 = decoded_vector[4] ^ decoded_vector[13] ^ decoded_vector[10] ^ decoded_vector[14];
+                int A43 = decoded_vector[1] ^ decoded_vector[6] ^ decoded_vector[10] ^ decoded_vector[14];
+                int A44 = decoded_vector[3] ^ decoded_vector[5] ^ decoded_vector[10] ^ decoded_vector[14];
+                int A45 = decoded_vector[7] ^ decoded_vector[8] ^ decoded_vector[10] ^ decoded_vector[14];
+                int A46 = decoded_vector[2] ^ decoded_vector[9] ^ decoded_vector[10] ^ decoded_vector[14];
+                int M4 = majority_gate(A41, A42, A43, A44, A45, A46);
+
+                int A51 = decoded_vector[0] ^ decoded_vector[11] ^ decoded_vector[5] ^ decoded_vector[14];
+                int A52 = decoded_vector[1] ^ decoded_vector[13] ^ decoded_vector[5] ^ decoded_vector[14];
+                int A53 = decoded_vector[3] ^ decoded_vector[10] ^ decoded_vector[5] ^ decoded_vector[14];
+                int A54 = decoded_vector[4] ^ decoded_vector[6] ^ decoded_vector[5] ^ decoded_vector[14];
+                int A55 = decoded_vector[2] ^ decoded_vector[7] ^ decoded_vector[5] ^ decoded_vector[14];
+                int A56 = decoded_vector[8] ^ decoded_vector[9] ^ decoded_vector[5] ^ decoded_vector[14];
+                int M5 = majority_gate(A51, A52, A53, A54, A55, A56);
+
+                int A61 = decoded_vector[1] ^ decoded_vector[12] ^ decoded_vector[2] ^ decoded_vector[14];
+                int A62 = decoded_vector[4] ^ decoded_vector[11] ^ decoded_vector[2] ^ decoded_vector[14];
+                int A63 = decoded_vector[0] ^ decoded_vector[6] ^ decoded_vector[2] ^ decoded_vector[14];
+                int A64 = decoded_vector[3] ^ decoded_vector[8] ^ decoded_vector[2] ^ decoded_vector[14];
+                int A65 = decoded_vector[5] ^ decoded_vector[7] ^ decoded_vector[2] ^ decoded_vector[14];
+                int A66 = decoded_vector[9] ^ decoded_vector[10] ^ decoded_vector[2] ^ decoded_vector[14];
+                int M6 = majority_gate(A61, A62, A63, A64, A65, A66);
+
+		int M = majority_gate(M1, M2, M3, M4, M5, M6);
+
 		decoded_vector[block_size - 1]^=M;
 		int temp=decoded_vector[block_size - 1];
 		for(int j=block_size - 1;j > 0;j--){
@@ -135,9 +190,9 @@ int calc_errors_after_decoding(int* current_encoded_vector, int* current_decoded
 
 void test_system() {
 	FILE* fptr;
-	fptr = fopen("MLD_15_7_Results.txt", "w");
+	fptr = fopen("Multi_Step_MLD_Results.txt", "w");
 	int block_size = 15;
-	int num_info_bits = 7;
+	int num_info_bits = 5;
 	int num_possible_info_vectors = pow(2, num_info_bits);
 	int* all_info_vectors = (int*)(malloc(num_possible_info_vectors * num_info_bits * sizeof(int)));
 	generate_information_vectors(num_info_bits, all_info_vectors);
@@ -225,6 +280,6 @@ void test_system() {
 
 int main(void) {
 	test_system();
-	system("vim MLD_15_7_Results.txt");
+	system("vim Multi_Step_MLD_Results.txt");
 	return 0;
 }

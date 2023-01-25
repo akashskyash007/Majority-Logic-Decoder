@@ -2,38 +2,38 @@
 #include <stdlib.h>
 #include <math.h>
 
-void generate_parity_vector(int* information_vector, int* parity_vector) {
+void generate_parity_vector(int* information_vector, int* encoded_vector, int block_size, int num_info_bits) {
 	int* flip_flop_input = (int*)(malloc(4*sizeof(int)));
 	int* flip_flop_output = (int*)(malloc(4*sizeof(int)));
-	for(int i=0;i<4;i++){
+	for(int i = 0; i < block_size - num_info_bits; i++){
 		flip_flop_input[i] = 0;
 		flip_flop_output[i] = 0;
 	
 	}
-	for(int i=0;i<3;i++){
+	for(int i = 0;i < num_info_bits;i++){
 		flip_flop_input[0] = flip_flop_output[3]^information_vector[2 - i];
 		flip_flop_input[1] = flip_flop_output[0];
 		flip_flop_input[2] = flip_flop_input[0] ^ flip_flop_output[1];
 		flip_flop_input[3] = flip_flop_input[0] ^ flip_flop_output[2];
+		for (int j = i; j > 0; j--) {
+			encoded_vector[j] = encoded_vector[j - 1];
+		}
+		encoded_vector[0] = information_vector[num_info_bits - 1 - i];
 		flip_flop_output[3] = flip_flop_input[3];
 		flip_flop_output[2] = flip_flop_input[2];
 		flip_flop_output[1] = flip_flop_input[1];
 		flip_flop_output[0] = flip_flop_input[0];
 	}
-	for (int i = 0; i < 4; i++) {
-		parity_vector[i] = flip_flop_output[i];
+	for (int i = num_info_bits; i < block_size; i++) {
+		for (int j = i; j > 0; j--) {
+			encoded_vector[j] = encoded_vector[j - 1];
+		}
+		encoded_vector[0] = flip_flop_output[block_size - i - 1];
 	}
 }
 
 void encode(int* encoded_vector, int* information_vector, int block_size, int num_info_bits) {
-	for (int i = 0; i < num_info_bits; i++) {
-		encoded_vector[i] = information_vector[i];
-	}
-        int* parity_vector = (int*)(malloc((block_size - num_info_bits) * sizeof(int)));
-	generate_parity_vector(information_vector, parity_vector);
-	for (int i = num_info_bits; i < block_size; i++) {
-		encoded_vector[i] = parity_vector[i - num_info_bits];
-	}	
+	generate_parity_vector(information_vector, encoded_vector, block_size, num_info_bits);
 }
 
 void add_error(int* receive_vector, int* encoded_vector,int* error_vector,int block_size){
