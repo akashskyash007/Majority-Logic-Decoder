@@ -13,13 +13,13 @@ module MLD_7_4_decoder_test_bench;
 		$dumpvars(0, MLD_7_4_decoder_test_bench);
 		$monitor("Decoded Vector: %b %b %b %b %b %b %b, Error Value: %b", decoded_vector[0], decoded_vector[1], decoded_vector[2], decoded_vector[3], decoded_vector[4], decoded_vector[5], decoded_vector[6], DUT.error_value);
 		#2 load = 1'b1;
-		received_bit_stream = 1'b1;
+		received_bit_stream = 1'b0;
+		#10 received_bit_stream = 1'b1;
+		#10 received_bit_stream = 1'b1;
+		#10 received_bit_stream = 1'b1;
+		#10 received_bit_stream = 1'b1;
 		#10 received_bit_stream = 1'b1;
 		#10 received_bit_stream = 1'b0;
-		#10 received_bit_stream = 1'b0;
-		#10 received_bit_stream = 1'b1;
-		#10 received_bit_stream = 1'b1;
-		#10 received_bit_stream = 1'b1;
 		#10 load = 1'b0;
 		#68 $finish;
 	end	

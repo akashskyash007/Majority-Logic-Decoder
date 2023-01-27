@@ -1,0 +1,185 @@
+$date
+	Tue Jan 24 22:28:12 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module MLD_7_4_Encoder_test_bench $end
+$var wire 1 ! out $end
+$var reg 1 " clk $end
+$var reg 1 # information_bit $end
+$var reg 1 $ reset $end
+$var reg 1 % sel $end
+$scope module DUT $end
+$var wire 1 " clk $end
+$var wire 1 & final_ff_output_after_delay $end
+$var wire 1 ' gate_input $end
+$var wire 1 # information_bit $end
+$var wire 1 $ reset $end
+$var wire 1 % sel $end
+$var wire 1 ! out $end
+$var wire 1 ( gate_output $end
+$var wire 1 ) ff4_output $end
+$var wire 1 * ff3_output $end
+$var wire 1 + ff2_output $end
+$var wire 1 , ff1_output $end
+$var reg 1 - ff1_input $end
+$var reg 1 . ff2_input $end
+$var reg 1 / ff3_input $end
+$var reg 1 0 ff4_input $end
+$scope module FF1 $end
+$var wire 1 - D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 , Q $end
+$upscope $end
+$scope module FF2 $end
+$var wire 1 . D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 + Q $end
+$upscope $end
+$scope module FF3 $end
+$var wire 1 / D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 * Q $end
+$upscope $end
+$scope module FF4 $end
+$var wire 1 0 D $end
+$var wire 1 " clk $end
+$var wire 1 $ reset $end
+$var reg 1 ) Q $end
+$upscope $end
+$scope module GATE $end
+$var wire 1 ' in0 $end
+$var wire 1 1 in1 $end
+$var wire 1 % sel $end
+$var reg 1 ( out $end
+$upscope $end
+$scope module SWITCH $end
+$var wire 1 # in0 $end
+$var wire 1 & in1 $end
+$var wire 1 % sel $end
+$var reg 1 ! out $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+01
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+0%
+1$
+0#
+0"
+0!
+$end
+#5
+00
+0/
+0-
+0(
+0.
+0'
+0,
+0+
+0*
+0)
+1"
+#7
+0&
+0$
+#10
+0"
+#15
+1"
+#17
+10
+1/
+1-
+1(
+1'
+1!
+1#
+#20
+0"
+#25
+0/
+0-
+0(
+10
+1.
+0'
+1,
+1*
+1)
+1"
+#27
+1&
+#30
+0"
+#35
+00
+1/
+0.
+0*
+1+
+0,
+1"
+#37
+1'
+0#
+1%
+#40
+0"
+#45
+10
+0/
+0'
+0+
+1*
+0)
+1"
+#47
+0!
+0&
+#50
+0"
+#55
+1'
+00
+1)
+0*
+1"
+#57
+1!
+1&
+#60
+0"
+#65
+0'
+0)
+1"
+#67
+0!
+0&
+#70
+0"
+#75
+1"
+#77

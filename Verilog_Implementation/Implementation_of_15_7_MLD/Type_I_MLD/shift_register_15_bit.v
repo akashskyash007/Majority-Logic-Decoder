@@ -1,0 +1,40 @@
+module shift_register_15_bit(reset, clk, in, out);
+	input reset, clk;
+	input in;
+	output out;
+
+	wire ff0_in, ff1_in, ff2_in, ff3_in, ff4_in, ff5_in, ff6_in, ff7_in, ff8_in, ff9_in, ff10_in, ff11_in, ff12_in, ff13_in, ff14_in;
+	wire ff0_out, ff1_out, ff2_out, ff3_out, ff4_out, ff5_out, ff6_out, ff7_out, ff8_out, ff9_out, ff10_out, ff11_out, ff12_out, ff13_out, ff14_out;
+	assign ff0_in = in;
+	assign ff1_in = ff0_out;
+	assign ff2_in = ff1_out;
+	assign ff3_in = ff2_out;
+	assign ff4_in = ff3_out;
+	assign ff5_in = ff4_out;
+	assign ff6_in = ff5_out;
+	assign ff7_in = ff6_out;
+	assign ff8_in = ff7_out;
+	assign ff9_in = ff8_out;
+	assign ff10_in = ff9_out;
+	assign ff11_in = ff10_out;
+	assign ff12_in = ff11_out;
+	assign ff13_in = ff12_out;
+	assign ff14_in = ff13_out;
+	assign out = ff14_out;
+
+	d_flip_flop FF0(reset, clk, ff0_in, ff0_out);
+	d_flip_flop FF1(reset, clk, ff1_in, ff1_out);
+	d_flip_flop FF2(reset, clk, ff2_in, ff2_out);
+	d_flip_flop FF3(reset, clk, ff3_in, ff3_out);
+	d_flip_flop FF4(reset, clk, ff4_in, ff4_out);
+	d_flip_flop FF5(reset, clk, ff5_in, ff5_out);
+	d_flip_flop FF6(reset, clk, ff6_in, ff6_out);
+	d_flip_flop FF7(reset, clk, ff7_in, ff7_out);
+	d_flip_flop FF8(reset, clk, ff8_in, ff8_out);
+	d_flip_flop FF9(reset, clk, ff9_in, ff9_out);
+	d_flip_flop FF10(reset, clk, ff10_in, ff10_out);
+	d_flip_flop FF11(reset, clk, ff11_in, ff11_out);
+	d_flip_flop FF12(reset, clk, ff12_in, ff12_out);
+	d_flip_flop FF13(reset, clk, ff13_in, ff13_out);
+	d_flip_flop FF14(reset, clk, ff14_in, ff14_out);
+endmodule

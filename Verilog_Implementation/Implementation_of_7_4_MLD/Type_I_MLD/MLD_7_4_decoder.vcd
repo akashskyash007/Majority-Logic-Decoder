@@ -1,0 +1,401 @@
+$date
+	Fri Jan 27 18:32:45 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module MLD_7_4_decoder_test_bench $end
+$var wire 1 ! decoded_bit_stream $end
+$var reg 1 " clk $end
+$var reg 1 # correct_errors $end
+$var reg 1 $ load $end
+$var reg 1 % received_bit_stream $end
+$var reg 1 & reset $end
+$scope module DUT $end
+$var wire 1 " clk $end
+$var wire 1 # correct_errors $end
+$var wire 1 $ load $end
+$var wire 1 ! output_bit_stream $end
+$var wire 1 ' parity_check_sum_1 $end
+$var wire 1 ( parity_check_sum_2 $end
+$var wire 1 ) parity_check_sum_3 $end
+$var wire 1 % received_bit_stream $end
+$var wire 1 & reset $end
+$var wire 1 * s0_input $end
+$var wire 1 + s1_input $end
+$var wire 1 , s2_input $end
+$var wire 1 - s3_input $end
+$var wire 1 . s3 $end
+$var wire 1 / s2 $end
+$var wire 1 0 s1 $end
+$var wire 1 1 s0 $end
+$var wire 1 2 buffer_register_output $end
+$var wire 1 3 M $end
+$var reg 1 4 buffer_register_input $end
+$var reg 1 5 error_value $end
+$scope module BUFFER_REGISTER $end
+$var wire 1 " clk $end
+$var wire 1 6 ff1_in $end
+$var wire 1 7 ff2_in $end
+$var wire 1 8 ff3_in $end
+$var wire 1 9 ff4_in $end
+$var wire 1 : ff5_in $end
+$var wire 1 ; ff6_in $end
+$var wire 1 < ff7_in $end
+$var wire 1 4 in $end
+$var wire 1 2 out $end
+$var wire 1 & reset $end
+$var wire 1 = ff7_out $end
+$var wire 1 > ff6_out $end
+$var wire 1 ? ff5_out $end
+$var wire 1 @ ff4_out $end
+$var wire 1 A ff3_out $end
+$var wire 1 B ff2_out $end
+$var wire 1 C ff1_out $end
+$scope module FF1 $end
+$var wire 1 6 D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 C Q $end
+$upscope $end
+$scope module FF2 $end
+$var wire 1 7 D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 B Q $end
+$upscope $end
+$scope module FF3 $end
+$var wire 1 8 D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 A Q $end
+$upscope $end
+$scope module FF4 $end
+$var wire 1 9 D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 @ Q $end
+$upscope $end
+$scope module FF5 $end
+$var wire 1 : D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 ? Q $end
+$upscope $end
+$scope module FF6 $end
+$var wire 1 ; D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 > Q $end
+$upscope $end
+$scope module FF7 $end
+$var wire 1 < D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 = Q $end
+$upscope $end
+$upscope $end
+$scope module MAJORITY_LOGIC $end
+$var wire 1 ' A $end
+$var wire 1 ( B $end
+$var wire 1 ) C $end
+$var wire 1 3 M $end
+$var wire 1 D t0 $end
+$var wire 1 E t1 $end
+$var wire 1 F t2 $end
+$upscope $end
+$scope module SYNDROME_FF_0 $end
+$var wire 1 * D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 1 Q $end
+$upscope $end
+$scope module SYNDROME_FF_1 $end
+$var wire 1 + D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 0 Q $end
+$upscope $end
+$scope module SYNDROME_FF_2 $end
+$var wire 1 , D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 / Q $end
+$upscope $end
+$scope module SYNDROME_FF_3 $end
+$var wire 1 - D $end
+$var wire 1 " clk $end
+$var wire 1 & reset $end
+$var reg 1 . Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+xF
+xE
+xD
+xC
+xB
+xA
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+x9
+x8
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+x#
+0"
+x!
+$end
+#2
+1&
+#5
+0!
+0*
+05
+06
+04
+03
+0E
+0)
+0-
+0,
+0D
+0F
+0+
+01
+0(
+00
+0/
+0'
+0.
+07
+0C
+08
+0B
+09
+0A
+0:
+0@
+0;
+0?
+0<
+0>
+02
+0=
+1"
+#10
+0"
+#12
+0%
+1#
+0&
+1$
+#15
+1"
+#20
+0"
+#22
+1*
+16
+14
+1%
+#25
+1)
+1+
+11
+17
+1C
+1"
+#30
+0"
+#35
+13
+1,
+1E
+18
+1B
+1(
+10
+1"
+#40
+0"
+#45
+03
+0E
+1-
+0)
+1/
+19
+1A
+1"
+#50
+0"
+#55
+13
+0-
+0,
+0*
+1D
+1:
+1@
+1'
+1.
+1"
+#60
+0"
+#65
+03
+1,
+1*
+0D
+0+
+01
+0/
+0'
+0.
+1;
+1?
+1"
+#70
+0"
+#72
+0*
+06
+04
+0%
+#75
+1-
+1)
+0,
+1<
+1>
+07
+0C
+1/
+0(
+00
+0#
+1"
+#80
+0"
+#82
+0$
+#85
+05
+03
+0)
+1,
+1*
+0F
+1!
+0/
+1'
+1.
+08
+0B
+12
+1=
+1"
+#90
+0"
+#95
+0-
+09
+0A
+1/
+1+
+11
+1"
+#100
+0"
+#105
+1-
+0*
+1(
+10
+0'
+0.
+0:
+0@
+1"
+#110
+0"
+#115
+0!
+15
+13
+1E
+0-
+0,
+0*
+1D
+1F
+1)
+0;
+0?
+1'
+1.
+0+
+01
+1"
+#120
+0"
+#125
+1!
+05
+03
+0E
+0)
+0*
+0D
+0F
+0(
+00
+0/
+0'
+0.
+0<
+0>
+1"
+#130
+0"
+#135
+0!
+02
+0=
+1"
+#140
+0"
+#145
+1"
+#150
+0"
